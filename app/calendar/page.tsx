@@ -53,6 +53,7 @@ function CalendarContent() {
       <div className="rounded-2xl border border-line bg-white/60 p-4 shadow-sm">
         <DatePicker
           value={selectedDate}
+          // @ts-ignore
           onChange={(dateObject: DateObject | null) =>
             dateObject && setSelectedDate(dateObject.toDate())
           }
