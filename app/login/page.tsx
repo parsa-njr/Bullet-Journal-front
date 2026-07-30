@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { useAuth } from "@/features/auth/AuthContext";
+import PasswordInput from "@/components/PasswordInput";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -31,25 +32,17 @@ export default function LoginPage() {
           بولت ژورنال من
         </h1>
         <p className="mb-6 text-center text-sm text-ink-light">وارد حساب کاربری‌ات شو</p>
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} autoComplete="off" className="flex flex-col gap-4">
           <input
             type="tel"
             required
+            autoComplete="off"
             placeholder="شماره موبایل"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className="rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-ink-light focus:outline-none"
           />
-          <input
-            type="password"
-            required
-            placeholder="رمز عبور"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-ink-light focus:outline-none"
-          />
-
+          <PasswordInput value={password} onChange={setPassword} required autoComplete="off" />
           {error && <p className="text-xs text-rose">{error}</p>}
 
           <button

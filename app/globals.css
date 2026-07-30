@@ -11,3 +11,9 @@ body {
   background-image: radial-gradient(circle, #d9dcd3 1px, transparent 1px);
   background-size: 18px 18px;
 }
+input,
+select,
+textarea {
+  direction: rtl;
+  text-align: right;
+}

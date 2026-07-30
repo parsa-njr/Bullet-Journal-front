@@ -59,7 +59,7 @@ function MonthlyPlanContent() {
 
   return (
     <div className="rounded-2xl border border-line bg-white/60 p-6 shadow-sm">
-      <div className="mb-4 flex items-center justify-between gap-3">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <h2 className="font-display text-xl font-bold text-ink">برنامه ماه</h2>
         <div className="flex items-center gap-2">
           <select

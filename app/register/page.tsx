@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { useAuth } from "@/features/auth/AuthContext";
+import PasswordInput from "@/components/PasswordInput";
 
 export default function RegisterPage() {
   const { register } = useAuth();
@@ -33,9 +34,10 @@ export default function RegisterPage() {
         </h1>
         <p className="mb-6 text-center text-sm text-ink-light">یه حساب جدید بساز</p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} autoComplete="off" className="flex flex-col gap-4">
           <input
             required
+            autoComplete="off"
             placeholder="نام"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -44,19 +46,18 @@ export default function RegisterPage() {
           <input
             type="tel"
             required
+            autoComplete="off"
             placeholder="شماره موبایل"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className="rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-ink-light focus:outline-none"
           />
-          <input
-            type="password"
+          <PasswordInput
+            value={password}
+            onChange={setPassword}
             required
             minLength={6}
             placeholder="رمز عبور (حداقل ۶ کاراکتر)"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-ink-light focus:outline-none"
           />
 
           {error && <p className="text-xs text-rose">{error}</p>}
