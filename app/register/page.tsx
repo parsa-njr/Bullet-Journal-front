@@ -43,6 +43,7 @@ export default function RegisterPage() {
             onChange={(e) => setName(e.target.value)}
             className="rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-ink-light focus:outline-none"
           />
+          
           <input
             type="tel"
             required
